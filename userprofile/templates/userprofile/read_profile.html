@@ -6,7 +6,6 @@
 {% block title_block %} Dr. {{ user.doctor.first_name }} {{ user.doctor.last_name }} | 360 MedNet {% endblock %}
 
 {% block content %}
-    <br>
 <div class="card">
 <div class="row container ">
 <div class="col s12 m9 l9">
@@ -17,18 +16,25 @@
                      style='max-height:150px;'>
                 </td>
                     <td>
-                        <br><font color="#4682b4">Dr. {{ read_profile.first_name }} {{ read_profile.last_name }}</font>
-            <br>{{ read_profile.profession}} at {{ read_profile.hospital}}
+                        <br><span class="flow-text"><font color="#4682b4">Dr. {{ read_profile.first_name }}
+                        {{ read_profile.last_name }}</font></span>
+            <span class="green-text"><br>{{ read_profile.profession}} at {{ read_profile.hospital}}
             <br>{{ read_profile.qualification }}
-            <br>{{ read_profile.specialization }}
-           <br><br>Joined on {{ read_profile.created_at }}
+                <br>{{ read_profile.specialization }}</span>
+                        <br><br>You Joined on <font color="#4682b4">{{ read_profile.created_at }}</font> <br>and you last
+                        updated your profile on <br><font color="#4682b4"> {{ read_profile.updated_at}}</font>
+            <br><br> <div class="row container"><a class="btn" href="{% url 'update_doctor' user.doctor.id %}">Update Profile</a></div>
                     </td>
                 </tr></table>
 
         <br><div class="divider"></div>
-{#        <img src="{{ read_profile.avatar.url }}" width = "150" height = "150"  />#}
-{#        <br><div class="divider"></div>#}
-        <br> About me:<br><font color="#4682b4">{{ read_profile.about_me }}</font><br><br><br>
+
+{#        <br> About me:<br><font color="#4682b4">{{ read_profile.about_me }}</font><br><br><br>#}
+        <br> About me:<br><font color="#4682b4">My name is Dr. {{ read_profile.first_name }} {{ read_profile.last_name }}.
+            I am a {{ read_profile.profession}} at {{ read_profile.hospital}}. I am qualified in {{ read_profile.qualification }}
+             and I am a specialist in {{ read_profile.specialization }}. I live and work in {{ read_profile.city }} city
+            in {{ read_profile.country }} and can be contacted on {{ read_profile.work_number }}.
+            <br><br>Thank you.</font><br><br><br>
         <br><div class="divider"></div><br>
         <div class="row">
             <div class="col s12 m3 l4"><h6>First Name :</div>
@@ -92,17 +98,17 @@
         </div>
 
         <br><br>
-</div>
+</div></div>
 <br>
-<div class="col s12 m9 l9">
-    <div class="divider"></div>
-    <br> Last updated on: {{ read_profile.updated_at}}
-    <br><br>
-    <div class="row container"><a class="btn" href="{% url 'update_doctor' user.doctor.id %}">Update Profile</a></div>
+<div class="col s12 m9 l9 card blue-grey darken-1 card-content white-text">
+{#    <div class="divider"></div>#}
+{#    <br> Last updated on: {{ read_profile.updated_at}}#}
+{#    <br><br>#}
+{#    <div class="row container"><a class="btn" href="{% url 'update_doctor' user.doctor.id %}">Update Profile</a></div>#}
 
 </div>
 </div>
-    </div>
+
 
 {% endblock %}
 {% endif %}
