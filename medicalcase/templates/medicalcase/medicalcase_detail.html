@@ -7,61 +7,74 @@
               <div class="card">
             <div class="container">
                 <br>
-                <h2>{{ object.title }}</h2>
-                <h5><span class="flow-text">Chief Complaint</span></h5>
-                {{ object.chief_complaint }}
-                <br><h5><span class="flow-text">Patient Details</span></h5>
-                Age: {{ object.patient_age }} &nbsp Gender: {{ object.patient_gender }} &nbsp
-                Country: {{ object.patient_country_of_origin}}
+                <p class="flow-text green-text" style="font-weight: 500">{{ object.title }}</p>
+                <p class="blue-grey-text">Presenting Complaint : </p>
+                 <span class="green-text">{{ object.chief_complaint }}</span>
+                <p class="blue-grey-text">Summary:</p>
+                <div class="green-text">
+                A {{ object.patient_age }} year old {{ object.patient_gender }} from {{ object.patient_country_of_origin }}
+                presented with {{ object.chief_complaint }}. The patient has a history of {{ object.history_of_present_illness }}
+                and has been on {{ object.medications }}.
+                    <br><br>For more details read below.</div>
+                <br><div class="divider"></div>
+
+                <br><p class="blue-grey-text">Patient Details</p>
+                Age: <span class="green-text">{{ object.patient_age }}</span> &nbsp
+                Gender: <span class="green-text">{{ object.patient_gender }}</span> &nbsp
+                <p class="blue-grey-text">Country: <span class="green-text">{{ object.patient_country_of_origin}}</span>
                 <br>
-                <br>history_of_present_illness
-                <br>{{ object.history_of_present_illness }}
+                <br><p class="blue-grey-text">History of present complaint</p>
+                <br><span class="green-text">{{ object.history_of_present_illness }}</span>
 
                 <br>
-                <br>medical_history
-                <br>{{ object.medical_history }}
+                <br><p class="blue-grey-text">Medical history</p>
+                <br><span class="green-text">{{ object.medical_history }}</span>
 
                 <br>
-                <br>surgical_history
-                <br>{{ object.surgical_history }}
+                <br><p class="blue-grey-text">Surgical history</p>
+                <br><span class="green-text">{{ object.surgical_history }}</span>
 
                 <br>
-                <br>social_history
-                <br>{{ object.social_history}}
+                <br><p class="blue-grey-text">Social history</p>
+                <br><span class="green-text">{{ object.social_history}}</span>
 
                 <br>
-                <br>family_history
-                <br>{{ object.family_history }}
+                <br><p class="blue-grey-text">Family_history</p>
+                <br><span class="green-text">{{ object.family_history }}</span>
 
                 <br>
-                <br>allergies
-                <br>{{ object.allergies }}
+                <br><p class="blue-grey-text">Allergies</p>
+                <br><span class="green-text">{{ object.allergies }}</span>
 
                 <br>
-                <br>medications
-                <br>{{ object.medications }}
+                <br><p class="blue-grey-text">Medications</p>
+                <br><span class="green-text">{{ object.medications }}</span>
 
                 <br>
-                <br>review_of_systems
-                <br>{{ object.review_of_systems }}
+                <br><p class="blue-grey-text">Review of systems</p>
+                <br><span class="green-text">{{ object.review_of_systems }}</span>
 
                 <br>
-                <br>physical_examination
-                <br>{{ object.physical_examination }}
+                <br><p class="blue-grey-text">Physical examination</p>
+                <br><span class="green-text">{{ object.physical_examination }}</span>
 
                 <br>
-                <br>medical_case_category
-                <br>{{ object.medical_case_category }}
+                <br><p class="blue-grey-text">Medical case category</p>
+                <br><span class="green-text">{{ object.medical_case_category }}</span>
+
+                <br><br>
+                <div class="divider"></div>
 
                 <table style="border-spacing:5px"><tr><td>
                     <br><img class="circle" src="{{object.doctor.avatar.url }}" class="responsive-img img-fluid"
                      style='max-height:80px;'>
                 </td>
                     <td>Shared by:<br>
-                        <br>Dr. {{ object.doctor.first_name }} {{ object.doctor.last_name }}
-            <br>{{ object.doctor.profession}} at {{ object.doctor.hospital}}
-            <br>Posted on {{ object.created_at}}
-                       <br>Last updated on  {{ object.updated_at}}
+                        <br><span class="blue-grey-text">Dr. {{ object.doctor.first_name }}
+                            {{ object.doctor.last_name }}</span>
+                        <br><span class="green-text">{{ object.doctor.profession}} at {{ object.doctor.hospital}}</span>
+                        <br>Posted on <span class="red-text">{{ object.created_at}}</span>
+                        <br>Last updated on  <span class="red-text">{{ object.updated_at}}</span>
                     </td>
                 </tr></table>
 
@@ -71,3 +84,4 @@
 
 
 {% endblock %}
+

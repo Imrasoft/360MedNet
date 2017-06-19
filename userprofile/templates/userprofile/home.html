@@ -101,19 +101,20 @@
                       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
                             <div class="nav-wrapper" style="max-width:70%">
-                                    <a href="{% url 'medical-case' %}"><i class="material-icons left">mode_edit</i>New Medical Case</a>
-                                <ul class="right hide-on-large-only">
-                                <li><a href="#"><i class="material-icons left">notifications</i></a></li>
-                                <li><a href="#"><i class="material-icons right">mail</i></a></li>
-                              </ul>
-                              <ul class="right hide-on-med-and-down">
-                                <li><a href="#"><i class="material-icons left">notifications</i>Notifications</a></li>
-                                <li><a href="#"><i class="material-icons right">mail</i>Messages</a></li>
-                              </ul>
+                                    <a href="{% url 'home' %}"><img src="{% static 'userprofile/images/textlogo.png' %}"
+                                        style='max-height:55px;padding-top:5px;'></a>
+{#                                <ul class="right hide-on-large-only">#}
+{#                                <li><a href="#"><i class="material-icons left">notifications</i></a></li>#}
+{#                                <li><a href="#"><i class="material-icons right">mail</i></a></li>#}
+{#                              </ul>#}
+{#                              <ul class="right hide-on-med-and-down">#}
+{#                                <li><a href="#"><i class="material-icons left">notifications</i>Notifications</a></li>#}
+{#                                <li><a href="#"><i class="material-icons right">mail</i>Messages</a></li>#}
+{#                              </ul>#}
                             </div>
                           </nav>
                 </div>
-                <div class="hide-on-med-and-up" style="background-color: steelblue; height:50px; position: static;"></div>
+{#                <div class="hide-on-med-and-up" style="background-color: steelblue; height:50px; position: static;"></div>#}
                 {% block content %}
 
                     <div class="row">
