@@ -95,10 +95,14 @@ def register_invited_user(request):
             registered = True
 
         else:
-            print (user_form.errors, doctor_form.errors)
+            print(user_form.errors, doctor_form.errors)
 
     else:
         user_form = UserForm()
         doctor_form = DoctorForm()
 
     return render(request, 'userprofile/register.html', locals())
+
+
+def invite_pics(request):
+    return render(request, 'invitation/invitepics.html', locals())

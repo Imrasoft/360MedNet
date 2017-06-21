@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^friend/invite/$', invitation_views.invite_friend, name='friend_invite'),
     url(r'^join/(?P<code>[a-zA-Z0-9]+)/$', invitation_views.join, name='join'),
     url(r'^join/friend/(?P<code>[a-zA-Z0-9]+)/$', invitation_views.join_friend_invite, name='join_friend_invite'),
-    url(r'^register_medic/$', invitation_views.register_invited_user, name='register_invited_user')
+    url(r'^register_medic/$', invitation_views.register_invited_user, name='register_invited_user'),
+    url(r'^invite_pics/$', invitation_views.invite_pics, name='invite-pics'),
 ]
