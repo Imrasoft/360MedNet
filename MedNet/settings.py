@@ -24,7 +24,7 @@ SECRET_KEY = '-=)xwpbh$j!_8mhg@&^5a2u9&y8&_dks%v94^znnwe5-!qdkct'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['195.110.58.41']
 
 # Application definition
 
@@ -97,8 +97,12 @@ WSGI_APPLICATION = 'MedNet.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mednet360',
+        'USER': 'admins',
+        'PASSWORD': '360db#1',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
