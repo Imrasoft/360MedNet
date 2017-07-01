@@ -5,17 +5,30 @@
 {% block content %}
     {% if registered  %}
         <div class="container">
-            <strong> Your account has been successfully registered with <strong>360 MedNet</strong> </strong>
-        Click <a href="{% url 'login' %}"> here.</a> to proceed to login.<br />
+        <div class="card">
+        <div class="card-title">
+            <span class="green-text">Success!</span>
+        </div>
+            <div class="card-content">
+            <span class="blue-grey-text"> Your account has been successfully registered with 360MedNet</span>
+        <br>Click <a href="{% url 'login' %}"> here.</a> to login.<br />
+            </div>
+        </div>
         </div>
 
         {% else %}
-    <div class="container">
-        <br><br>
-    <span class="flow-text">Hello there! </span>
-        <br><span class="red-text">Greetings from the 360MednNet Team.</span>
+
+        <div class="container">
+        <div class="card">
+        <div class="card-title">
+            <span class="green-text">Hello there!</span>
+        </div>
+            <div class="card-content">
+            <br><span class="red-text">Greetings from the 360MednNet Team.</span>
         <br><span class="blue-grey-text">Please provide the details below to help us package the best experience
         for you!</span>
+            </div>
+
 <form method="POST">
     {% csrf_token %}
     {% form form=doctor_form %}
@@ -38,7 +51,8 @@
 
     <button type="submit" name="_submit" class="btn">Register</button>
 </form>
-    </div>
+   </div>
+        </div>
         <br><br>
     {% endif %}
 {% endblock %}
