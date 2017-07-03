@@ -1,14 +1,29 @@
-Hello {{ doctor.first_name}},
+<html>
+<head>
 
-Your details have been verified and an account has been created for you on 360MedNet.
+</head>
+
+<body>
+<div style="height: 200px">
+    <img src="http://www.360mednet.com/static/userprofile/images/Doctorsnetwork.jpg">
+</div>
+
+<div align="center">
+<br>Hello {{ doctor.first_name}},
+
+<br><br>Your details have been verified and an account has been created for you on 360MedNet.
 Below are your set login credentials.
 
-Username: {{ user.username }}
-Password: {{ password }}
-email: {{ user.email }}
+<br>Username: {{ user.username }}
+<br>Password: {{ password }}
+<br>email: {{ user.email }}
 
-To proceed to login, please click the link below:
+<br><br>To proceed to login, please click the link below:
 {{ domain }}/login
 
-Kind regards,
-360MedNet Support Team
+<br><br>Kind regards,
+<br>360MedNet Support Team
+</div>
+
+</body>
+</html>

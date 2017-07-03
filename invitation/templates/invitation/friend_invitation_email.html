@@ -1,28 +1,28 @@
-{#Hi {{ name }},#}
-{##}
-{##}
-{##}
-{#To accept the invitation, please click the link below:#}
-{#{{ link }}#}
-{##}
-{##}
-{#360MedNet Support Team#}
-
-
 
 <html>
+<head>
 
-Dear {{ name }},
+</head>
 
-{{ sender.doctor.first_name}} {{ sender.doctor.last_name}} has invited you to join 360MedNet.
+<body>
+<div style="height: 200px">
+    <img src="http://www.360mednet.com/static/userprofile/images/Doctorsnetwork.jpg">
+</div>
 
-Join and Be a part of a wonderful new world- 360MedNet.
+<div align="center">
 
-360MedNet is a professional networking platform for Doctors, Pharmacists, Nurses, Dentists, Laboratory specialists, Medical assistants and the like.
+<br>Dear {{ name }},
 
-As part of this community, you will be able to:
+<br>{{ sender.doctor.first_name}} {{ sender.doctor.last_name}} has invited you to join 360MedNet.
 
-(This will be in form of an inforgraphic)
+<br>Join and Be a part of a wonderful new world- 360MedNet.
+
+<br>360MedNet is a professional networking platform for Doctors, Pharmacists, Nurses, Dentists, Laboratory specialists,
+Medical assistants and the like.
+
+<br><br>As part of this community, you will be able to:
+
+<br><br>(This will be in form of an inforgraphic)
 - Share interesting cases with other medical professionals
 - Engage in closed forums for medics
 - Get real time information on scholarships
@@ -38,8 +38,7 @@ As part of this community, you will be able to:
           </div>
         </div>
 
+</div>
 
-{#To accept the invitation, please click the link below:#}
-{#{{ link }}#}
-
+</body>
 </html>
