@@ -7,152 +7,83 @@
               <div class="card">
             <div class="container">
                 <br>
-                <p class="flow-text green-text" style="font-weight: 500">{{ object.title }}</p>
-                <p class="blue-grey-text">Presenting Complaint : </p>
-                 <span class="green-text text-darken-4">{{ object.chief_complaint }}</span>
-                <p class="blue-grey-text">Summary:</p>
-                <div class="green-text text-darken-4">
-                A {{ object.patient_age }} year old {{ object.patient_gender }} from {{ object.patient_country_of_origin }}
-                presented with {{ object.chief_complaint }}. The patient has a history of {{ object.history_of_present_illness }}
-                and has been on {{ object.medications }}. The patient was physically examined on
-                    {{ object.physical_examination }}. He is allergic to {{ object.allergies }}.
-{#                    <br><br>For more details read below.</div>#}
-                <br><br><div class="divider"></div>
-
-{#                <br><p class="blue-grey-text">Patient Details</p>#}
-{#                Age: <span class="green-text">{{ object.patient_age }}</span> &nbsp#}
-{#                Gender: <span class="green-text">{{ object.patient_gender }}</span> &nbsp#}
-{#                <p class="blue-grey-text">Country: <span class="green-text">{{ object.patient_country_of_origin}}</span>#}
-{#                <br>#}
-{#                <br><p class="blue-grey-text">History of present complaint</p>#}
-{#                <br><span class="green-text">{{ object.history_of_present_illness }}</span>#}
-{##}
-{#                <br>#}
-{#                <br><p class="blue-grey-text">Medical history</p>#}
-{#                <br><span class="green-text">{{ object.medical_history }}</span>#}
-{##}
-{#                <br>#}
-{#                <br><p class="blue-grey-text">Surgical history</p>#}
-{#                <br><span class="green-text">{{ object.surgical_history }}</span>#}
-{##}
-{#                <br>#}
-{#                <br><p class="blue-grey-text">Social history</p>#}
-{#                <br><span class="green-text">{{ object.social_history}}</span>#}
-{##}
-{#                <br>#}
-{#                <br><p class="blue-grey-text">Family_history</p>#}
-{#                <br><span class="green-text">{{ object.family_history }}</span>#}
-{##}
-{#                <br>#}
-{#                <br><p class="blue-grey-text">Allergies</p>#}
-{#                <br><span class="green-text">{{ object.allergies }}</span>#}
-{##}
-{#                <br>#}
-{#                <br><p class="blue-grey-text">Medications</p>#}
-{#                <br><span class="green-text">{{ object.medications }}</span>#}
-{##}
-{#                <br>#}
-{#                <br><p class="blue-grey-text">Review of systems</p>#}
-{#                <br><span class="green-text">{{ object.review_of_systems }}</span>#}
-{##}
-{#                <br>#}
-{#                <br><p class="blue-grey-text">Physical examination</p>#}
-{#                <br><span class="green-text">{{ object.physical_examination }}</span>#}
+                <h2>{{ object.title }}</h2>
+                <h5><span class="flow-text">Chief Complaint</span></h5>
+                {{ object.chief_complaint }}
+                <br><h5><span class="flow-text">Patient Details</span></h5>
+                Age: {{ object.patient_age }} &nbsp Gender: {{ object.patient_gender }} &nbsp
+                Country: {{ object.patient_country_of_origin}}
+                <br>
+                <br>history_of_present_illness
+                <br>{{ object.history_of_present_illness }}
 
                 <br>
-                <p class="blue-grey-text">Medical case category :
-                <span class="green-text">{{ object.medical_case_category }}</span>
+                <br>medical_history
+                <br>{{ object.medical_history }}
 
-                    <br>
-                <div class="divider"></div>
+                <br>
+                <br>surgical_history
+                <br>{{ object.surgical_history }}
+
+                <br>
+                <br>social_history
+                <br>{{ object.social_history}}
+
+                <br>
+                <br>family_history
+                <br>{{ object.family_history }}
+
+                <br>
+                <br>allergies
+                <br>{{ object.allergies }}
+
+                <br>
+                <br>medications
+                <br>{{ object.medications }}
+
+                <br>
+                <br>review_of_systems
+                <br>{{ object.review_of_systems }}
+
+                <br>
+                <br>physical_examination
+                <br>{{ object.physical_examination }}
+
+                <br>
+                <br>medical_case_category
+                <br>{{ object.medical_case_category }}
 
                 <table style="border-spacing:5px"><tr><td>
                     <br><img class="circle" src="{{object.doctor.avatar.url }}" class="responsive-img img-fluid"
                      style='max-height:80px;'>
                 </td>
                     <td>Shared by:<br>
-                        <br><span class="blue-grey-text">Dr. {{ object.doctor.first_name }}
-                            {{ object.doctor.last_name }}</span>
-                        <br><span class="green-text">{{ object.doctor.profession}} at {{ object.doctor.hospital}}</span>
-                        <br>Posted on <span class="red-text">{{ object.created_at}}</span>
-                        <br>Last updated on  <span class="red-text">{{ object.updated_at}}</span>
+                        <br>Dr. {{ object.doctor.first_name }} {{ object.doctor.last_name }}
+            <br>{{ object.doctor.profession}} at {{ object.doctor.hospital}}
+            <br>Posted on {{ object.created_at}}
+                       <br>Last updated on  {{ object.updated_at}}
                     </td>
                 </tr></table>
 
                 <br>
+                <form method="POST" action="{% url 'medical-case-comment' object.id %}">
+            {% csrf_token %}
+           {% form form=form %}{% endform %}
+
+            <button type="submit" name="_submit" class="btn">Comment</button>
+        </form>
+
+
+    {% for comment in view.comments %}
+        <br>{{ comment.comment_content }}
+        <br>{{ comment.doctor.first_name  }} &nbsp{{ comment.doctor.last_name  }}
+        <br>{{ comment.created_at }}
+        <br>
+    {% endfor %}
+            <br><br>
+    </div>
             </div>
             </div>
-
-
-                <br>
-                <div class="divider"></div>
-                    <br><br>
-<div class="container">
-                <div class="col s12 m6 l6"
-                <div class="card">
-                    <div class="card-title">
-                        <span class="flow-text">Comments & Feedback</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="row">
-                            <form class="col s12">
-                              <div class="row">
-                                <div class="input-field col s12">
-                                  <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                  <label for="textarea1">Comment</label>
-                                </div>
-                              </div>
-                                 <br><br>
-                                <a class="waves-effect green waves-light btn"><i class="material-icons right">send</i>post comment</a>
-                            </form>
-                          </div>
-                    </div>
-                </div>
-            `   </div>
-                  <div class="container">
-                      <span class="blue-grey-text">3 Comments</span><br><br>
-                  </div>
-
- <div class="card">
-                    <div class="container">
-    <span class="green-text"> Hi I am a comment</span><br><br>
-    <td>By:
-                        <br><span class="blue-grey-text">Dr. {{ object.doctor.first_name }}
-                            {{ object.doctor.last_name }}</span>
-                        <br><span class="green-text">{{ object.doctor.profession}} at {{ object.doctor.hospital}}</span>
-                        <br>Commented on <span class="red-text">{{ object.created_at}}</span><br>
-                    </td><br>
-                    </div>
-</div>
-                <div class="card">
-                    <div class="container">
-    <span class="green-text"> Hi I am a comment</span><br><br>
-    <td>By:
-                        <br><span class="blue-grey-text">Dr. {{ object.doctor.first_name }}
-                            {{ object.doctor.last_name }}</span>
-                        <br><span class="green-text">{{ object.doctor.profession}} at {{ object.doctor.hospital}}</span>
-                        <br>Commented on <span class="red-text">{{ object.created_at}}</span><br>
-                    </td><br>
-                    </div>
-</div>
-                <div class="card">
-                    <div class="container">
-    <span class="green-text"> Hi I am a comment</span><br><br>
-    <td>By:
-                        <br><span class="blue-grey-text">Dr. {{ object.doctor.first_name }}
-                            {{ object.doctor.last_name }}</span>
-                        <br><span class="green-text">{{ object.doctor.profession}} at {{ object.doctor.hospital}}</span>
-                        <br>Commented on <span class="red-text">{{ object.created_at}}</span><br>
-                    </td><br>
-                    </div>
-</div>
-              <div style="background-color: darkslategrey; height: 150px;" class="white-text" align="center">
-                  <br><br>&copy 2017 360MedNet
-              </div>
-
-
-</div>
 
 
 {% endblock %}
-

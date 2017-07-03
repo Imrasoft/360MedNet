@@ -5,70 +5,15 @@
 {% block title_block %} 360 MedNet {% endblock %}
 {% block large %}<br>
 
-
-       <div class="row">
-
-          <div class="col s12 m6 l6">
-            <div class="row">
-        <div class="col l12">
-          <div class="card">
-            <div class="card-image">
-              <img src="{% static 'userprofile/images/cardhdr2.jpg' %}" alt ="Email Alerts">
-
-            </div>
-            <div class="card-content">
-             <span class="card-title">Events</span>
-              <p class="blue-grey-text">Ongoing & Upcoming Events and Conferences .</p>
-            {% if top_five_latest_events %}
-                 <ul class="cyan-text">
-                     {% for event in top_five_latest_events %}
-                         <li>{{ event }}</li>
-                     {% endfor %}
-            </ul>
-                {% else %}
-                No events available yet.
-            {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-          </div>
-      <div class="col s12 m6 l6">
-            <div class="row">
-        <div class="col l12">
-          <div class="card">
-            <div class="card-image">
-              <img src="{% static 'userprofile/images/cardhdr2.jpg' %}" alt ="360 MedNet is Secure">
-            </div>
-            <div class="card-content">
-            <span class="card-title">Medical Cases</span>
-                <p class="blue-grey-text">The newest 5 shared medical cases will be listed here.</p>
-            {% if top_five_latest_medical_cases %}
-                  <ul class="cyan-text">
-                      {% for medical_case in top_five_latest_medical_cases %}
-                         <li>{{ medical_case.title }}</li>
-                     {% endfor %}
-            </ul>
-                {% else %}
-                No Medical cases yet.
-            {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-          </div>
-    </div>
-    </p>
-
-{% if object_list.count > 0 %}
-        {% for post in object_list %}
+{% if all_posts.count > 0 %}
+        {% for post in all_posts %}
 
          <div class="col s12 m12 l12">
             <div class="row">
             <div class="col l12 m12 s12">
               <div class="card">
             <div class="container">
-                <br><h2>{{ post.title }}</h2>
+                <br><h5><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h5>
             <br>{{ post.post_content }}
             <br><br>
 
