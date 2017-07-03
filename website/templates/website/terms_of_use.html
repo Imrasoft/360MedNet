@@ -5,11 +5,27 @@
 {% block title_block %}Terms of Use | 360MedNet{% endblock %}
 {% block content %}
 
-    <div class="container" style="height: auto">
+        <div style="height: 90vh;">
+    <div class="section no-pad-bot">
+        <div class="container" align="center">
+            <br><br><br><br>
+
+            <h2 class="header center teal-text text-darken-1">Terms of Use</h2>
+
+            <div class="row center">
+                <h5 class="header teal-text text-darken-3 col s12 light">360MedNet</h5>
+            </div>
+
+             <div class="row center">
+                <a href="{% url 'signup' %}" id="download-button"
+                   class="btn-large waves-effect waves-light teal lighten-1">Download Terms of Use</a>
+            </div>
+            <br><br>
+
+                <div class="container" style="height: auto">
     <div class="col s12 m9 l9">
         <div class="card">
     <div class="card-content">
-        <br><span class="flow-text">Code of Conduct</span>
     <p class="blue-grey-text">Thank you for choosing to be a member of the 360MedNet community. As we strive to grow a vibrant online community
         for medical professionals, this Code of Conduct helps us ensure that we maintain credible standards to foster
         health worker dialogue with utmost confidence and trust.
@@ -18,25 +34,18 @@
         communicate to you from time to time.
         You are encouraged to use our Support page or email info@360Mednet.com if you have any questions.</p>
          <br><br>
-        <p class="blue-grey-text">Thank you for choosing to be a member of the 360MedNet community. As we strive to grow a vibrant online community
-        for medical professionals, this Code of Conduct helps us ensure that we maintain credible standards to foster
-        health worker dialogue with utmost confidence and trust.
-    Please review the Code of Conduct to understand the behavioral expectations for this Community. Your use of
-        360MedNet reflects your agreement to adhere to the Code, our Privacy Policy and any other policies we
-        communicate to you from time to time.
-        You are encouraged to use our Support page or email info@360Mednet.com if you have any questions.</p>
-        <br><br>
-        <p class="blue-grey-text">Thank you for choosing to be a member of the 360MedNet community. As we strive to grow a vibrant online community
-        for medical professionals, this Code of Conduct helps us ensure that we maintain credible standards to foster
-        health worker dialogue with utmost confidence and trust.
-    Please review the Code of Conduct to understand the behavioral expectations for this Community. Your use of
-        360MedNet reflects your agreement to adhere to the Code, our Privacy Policy and any other policies we
-        communicate to you from time to time.
-        You are encouraged to use our Support page or email info@360Mednet.com if you have any questions.</p>
+
 
     </div>
     </div>
     </div>
     </div>
+
+        </div>
+    </div>
+    <div class="parallax"><img src="{% static 'userprofile/images/hdr1.jpeg' %}"></div>
+        </div>
+
+
 
 {% endblock %}
