@@ -3,7 +3,7 @@
 {% load material_form %}
 
 {% block title_block %} 360 MedNet {% endblock %}
-{% block content %}
+{% block large %}
 
 {% if object_list.count > 0 %}
         {% for medical_case in object_list %}
@@ -11,20 +11,22 @@
             <div class="container">
                 <br>
                 <br><span class="flow-text" ><a href="{% url 'medical_case-detail' medical_case.id %}">{{ medical_case.title }}</a></span>
-                <h5>Purpose</h5>
-                {{ medical_case.purpose }}
-                <h5>Chief Complaint</h5>
-                {{ medical_case.chief_complaint }}
+
+                <br><br><span class="green-text">Presenting Complaint</span>
+                <br><span class="blue-grey-text">{{ medical_case.chief_complaint }}</span>
+                <br><br><span class="blue-grey-text">Reason for sharing</span>: {{ medical_case.purpose }}
             <br>
                 <table><tr><td>
                     <br><a href="{% url 'doctor-detail' medical_case.doctor.id %}"><img class="circle" src="{{medical_case.doctor.avatar.url }}" class="responsive-img img-fluid"
                                                                                         style='max-height:80px;'></a>
                 </td>
                     <td>Shared by:<br>
+                        <div class="grey-text">
                         <br><a href="{% url 'doctor-detail' medical_case.doctor.id %}">Dr. {{ medical_case.doctor.first_name }} {{ medical_case.doctor.last_name }}</a>
             <br>{{ medical_case.doctor.profession}} at {{ medical_case.doctor.hospital}}
             <br>Posted on {{ medical_case.created_at}}
              <br>Last updated on {{ medical_case.updated_at}}
+                        </div>
                     </td>
                 </tr></table>
 
