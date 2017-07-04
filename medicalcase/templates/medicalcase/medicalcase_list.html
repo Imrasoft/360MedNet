@@ -14,7 +14,7 @@
 
                 <br><br><span class="green-text">Presenting Complaint</span>
                 <br><span class="blue-grey-text">{{ medical_case.chief_complaint }}</span>
-                <br><br><span class="blue-grey-text">Reason for sharing</span>: {{ medical_case.purpose }}
+                <br><br><span class="blue-grey-text">Reason for sharing</span> : <span class="green-text">{{ medical_case.purpose }}</span>
             <br>
                 <table><tr><td>
                     <br><a href="{% url 'doctor-detail' medical_case.doctor.id %}"><img class="circle" src="{{medical_case.doctor.avatar.url }}" class="responsive-img img-fluid"

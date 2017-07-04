@@ -5,7 +5,7 @@ from .models import MedicalCase, Comment
 
 
 class MedicalCaseForm(forms.ModelForm):
-    patient_gender = forms.CharField(widget=forms.TextInput)
+
     purpose = forms.CharField(widget=forms.TextInput, label='Reason for sharing medical case')
 
     class Meta:

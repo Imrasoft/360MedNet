@@ -5,7 +5,7 @@ from post.models import Post, Comment
 
 
 class PostForm(forms.ModelForm):
-    post_content = forms.CharField(label='Post  or medical case', widget=forms.Textarea)
+    post_content = forms.CharField(label='Post content', widget=forms.Textarea)
 
     class Meta:
         model = Post

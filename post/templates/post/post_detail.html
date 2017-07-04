@@ -9,10 +9,10 @@
     <br><br>
 
     <div class="card-title">
-        <span class="flow-text blue-text" style="font-weight: 400">{{ post.title }}</span>
+        <span class="flow-text blue-text" style="font-weight: 300">{{ post.title }}</span>
     </div>
 
-{{ object.post_content }}
+        <p class="grey-text text-darken-2">{{ object.post_content }}</p>
     <br><br>
         Posted by: <span class="blue-text"> Dr. {{ object.doctor.first_name }} {{ object.doctor.last_name }}</span>
 {#    <br><a href="{% url 'comment' object.id %}" class="button">Comment</a>#}
@@ -23,6 +23,7 @@
 
             <button type="submit" name="_submit" class="btn">Comment</button>
         </form>
+    <br><br>
 
 
     {% for comment in view.comments %}

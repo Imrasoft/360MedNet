@@ -17,7 +17,7 @@ from django.core.urlresolvers import reverse_lazy, reverse
 class PostCreate(CreateView):
     model = Post
     form_class = PostForm
-    success_url = '/feed/'
+    success_url = '/discussions/'
 
     def form_valid(self, form):
         form.instance.doctor = Doctor.objects.get(user=self.request.user)
@@ -29,6 +29,7 @@ class Posts(ListView):
     model = Post
     form_class = PostForm
     success_url = reverse_lazy('posts')
+    template_name = 'post/post_list.html'
 
     def render_to_response(self, context, **response_kwargs):
         top_five_latest_medical_cases = MedicalCase.objects.order_by('-created_at')[:5]

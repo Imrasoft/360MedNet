@@ -1,11 +1,12 @@
 from django.contrib import admin
-from .models import Record, Medic, Doctor
+from .models import Record, Medic, Doctor,Profession,Specialization
 
 
 class RecordAdmin(admin.ModelAdmin):
     list_display = ('id', 'file', 'synced', 'created_on')
     list_filter = ['created_on']
     search_fields = ['file']
+
 
 class DoctorAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name', 'profession')
@@ -15,3 +16,5 @@ class DoctorAdmin(admin.ModelAdmin):
 admin.site.register(Record, RecordAdmin)
 admin.site.register(Medic)
 admin.site.register(Doctor, DoctorAdmin)
+admin.site.register(Specialization)
+admin.site.register(Profession)

@@ -48,7 +48,7 @@
 
         <li><div class="divider"></div></li>
         <li><a href="{% url 'medical-case' %}" class="blue-grey-text"><i class="material-icons">mode_edit</i>Share Medical Case</a></li>
-        <li><a href="{% url 'Post' %}" class="blue-grey-text"><i class="material-icons">loyalty</i>Make a Post</a></li>
+        <li><a href="{% url 'Post' %}" class="blue-grey-text"><i class="material-icons">loyalty</i>Post on Forum</a></li>
         <li><a href="{% url 'events' %}" class="blue-grey-text"><i class="material-icons">chat</i>Events & Conferences</a></li>
         <li><div class="divider"></div></li>
 
@@ -158,32 +158,23 @@
                               </div>
                             </div>
                               <br><br>
-                              <div class="col l12">
-                              <div class="card">
-                                <div class="card-image">
-                                  <img src="{% static 'userprofile/images/cardhdr.png' %}" alt ="360 MedNet is Secure">
-                                </div>
-                                <div class="card-content">
-                                <span class="deep-orange-text">New Doctors</span>
-                                  <p class="blue-grey-text">360 MedNet is secure and abides by the patient confidentiality act. No Personal Information will be publicised in any way.</p>
-                                </div>
-                              </div>
-                            </div>
+
                               <br><br>
-                              <div class="col l12">
-                              <div class="card">
-                                <div class="card-content">
-                                <span class="deep-orange-text">New Doctors</span>
-                                   <br>
-                                    {% for doctor in object_list %}
-                                       <table><tr><td><img class="circle" src="{{user.doctor.avatar.url }}"
-                                             class="responsive-img img-fluid"
-                                                    style='max-height:50px; max-width: 50px'></td><td><p class="blue-grey-text">Dr. {{ user.doctor.first_name }}
-                                           {{ user.doctor.last_name }}</p></td></tr></table>
-                                    {% endfor %}
-                                </div>
-                              </div>
-                            </div>
+{#                              <div class="col l12">#}
+{#                              <div class="card">#}
+{#                                <div class="card-content">#}
+{#                                <span class="deep-orange-text">New Doctors</span>#}
+{#                                   <br>#}
+{#                                    {% for doctor in object_list %}#}
+{#                                       <table><tr><td><img class="circle" src="{{user.doctor.avatar.url }}"#}
+{#                                             class="responsive-img img-fluid"#}
+{#                                                    style='max-height:50px; max-width: 50px'></td><td><p class="blue-grey-text">Dr. {{ user.doctor.first_name }}#}
+{#                                           {{ user.doctor.last_name }}</p></td></tr></table>#}
+{#                                    {% endfor %}#}
+{#                                </div>#}
+{#                              </div>#}
+{#                            </div>#}
+
                               <br><br>
                               <div class="col l12">
                               <div class="card">
