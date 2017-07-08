@@ -101,7 +101,7 @@
                       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
                             <div class="nav-wrapper" style="max-width:70%">
-                                    <a href="{% url 'all-discussions' %}"><img src="{% static 'userprofile/images/textlogo.png' %}"
+                                    <a href="{% url 'posts' %}"><img src="{% static 'userprofile/images/textlogo.png' %}"
                                         style='max-height:55px;padding-top:5px;'></a>
 {#                                <ul class="right hide-on-large-only">#}
 {#                                <li><a href="#"><i class="material-icons left">notifications</i></a></li>#}
@@ -161,6 +161,18 @@
                               <br><br>
 
                               <br><br>
+
+
+                                <div class="card col s12 m12 l12">
+                                    <br><div class="card-image">
+                                    <a href="{% url 'medical_cases' %}"><img src="{% static 'userprofile/images/hdr03.jpg' %}"></a>
+                                        <br><span class="card-title" style="font-weight: 500">View All Shared Medical Cases</span>
+                                    </div>
+                        {#            <div class="card-action blue-grey" align="center">#}
+                        {#          <a href="{% url 'medical_cases' %}">View All Shared Medical Cases</a>#}
+                        {#        </div>#}
+                                </div>
+
                               <div class="card col l12">
                                 <div class="card-image">
                                   <img src="{% static 'userprofile/images/cardhdr.png' %}" alt ="360 MedNet is Secure">
