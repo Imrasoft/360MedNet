@@ -28,28 +28,32 @@ class PostCreate(CreateView):
 class Posts(ListView):
     model = Post
     form_class = PostForm
-    success_url = reverse_lazy('posts')
-    template_name = 'post/post_list.html'
+    success_url = reverse_lazy('all-discussions')
 
     def render_to_response(self, context, **response_kwargs):
+        #top_five_latest_medical_cases = MedicalCase.objects.filter(patient_country_of_origin="United Kingdom").all()
         top_five_latest_medical_cases = MedicalCase.objects.order_by('-created_at')[:5]
         top_five_latest_events = Event.objects.order_by('-created_on')[:5]
         context = {'top_five_latest_medical_cases': top_five_latest_medical_cases,
                    'top_five_latest_events': top_five_latest_events}
 
-        return self.response_class(request=self.request, template=self.get_template_names(), context=context,
-                                   using=self.template_engine)
+        return self.response_class(request=self.request, template=self.get_template_names(), using=self.template_engine,
+                                   context=context)
 
 
 class PostList(ListView):
     model = Post
     form_class = PostForm
-    success_url = reverse_lazy('posts')
+    success_url = reverse_lazy('all-discussions')
     template_name = 'post/posts_list.html'
 
     def render_to_response(self, context, **response_kwargs):
         all_posts = Post.objects.order_by('-created_at').all()
-        context = {'all_posts': all_posts}
+        top_five_latest_medical_cases = MedicalCase.objects.order_by('-created_at')[:5]
+        top_five_latest_events = Event.objects.order_by('-created_on')[:5]
+
+        context = {'all_posts': all_posts, 'top_five_latest_medical_cases': top_five_latest_medical_cases,
+                   'top_five_latest_events': top_five_latest_events}
 
         return self.response_class(request=self.request, template=self.get_template_names(), context=context,
                                    using=self.template_engine)

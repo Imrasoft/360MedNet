@@ -101,7 +101,7 @@
                       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
                             <div class="nav-wrapper" style="max-width:70%">
-                                    <a href="{% url 'home' %}"><img src="{% static 'userprofile/images/textlogo.png' %}"
+                                    <a href="{% url 'all-discussions' %}"><img src="{% static 'userprofile/images/textlogo.png' %}"
                                         style='max-height:55px;padding-top:5px;'></a>
 {#                                <ul class="right hide-on-large-only">#}
 {#                                <li><a href="#"><i class="material-icons left">notifications</i></a></li>#}
@@ -119,18 +119,17 @@
 
                     <div class="row">
 
-                      <div class="col s12 m8 l8">
+                      <div class="col s12 m8 l9">
                         {% block large %}
                              {% endblock large %}
                       </div>
 
-                      <div class="col s12 m4 l4">
+                      <div class="col s12 m4 l3">
                           {% block thin %}
-                              <br>
-                              <div class="col l12">
-                              <div class="card">
-                                <div class="card-image">
-                                  <img src="{% static 'userprofile/images/eventheader.jpg' %}" alt ="360 MedNet is Secure">
+                              <div class="card col l12">
+                                <br>
+                                  <div class="card-image">
+                                  <img src="{% static 'userprofile/images/eventheader.jpg' %}">
                                 </div>
                                 <div class="card-content">
                                 <span class="deep-orange-text"></span>
@@ -156,28 +155,13 @@
                                             </div>
                                 </div>
                               </div>
-                            </div>
+
                               <br><br>
 
                               <br><br>
-{#                              <div class="col l12">#}
-{#                              <div class="card">#}
-{#                                <div class="card-content">#}
-{#                                <span class="deep-orange-text">New Doctors</span>#}
-{#                                   <br>#}
-{#                                    {% for doctor in object_list %}#}
-{#                                       <table><tr><td><img class="circle" src="{{user.doctor.avatar.url }}"#}
-{#                                             class="responsive-img img-fluid"#}
-{#                                                    style='max-height:50px; max-width: 50px'></td><td><p class="blue-grey-text">Dr. {{ user.doctor.first_name }}#}
-{#                                           {{ user.doctor.last_name }}</p></td></tr></table>#}
-{#                                    {% endfor %}#}
-{#                                </div>#}
-{#                              </div>#}
-{#                            </div>#}
 
                               <br><br>
-                              <div class="col l12">
-                              <div class="card">
+                              <div class="card col l12">
                                 <div class="card-image">
                                   <img src="{% static 'userprofile/images/cardhdr.png' %}" alt ="360 MedNet is Secure">
                                 </div>
@@ -186,7 +170,7 @@
                                   <p class="blue-grey-text">360 MedNet is secure and abides by the patient confidentiality act. No Personal Information will be publicised in any way.</p>
                                 </div>
                               </div>
-                            </div>
+
 
                           {% endblock thin %}
                       </div>

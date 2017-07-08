@@ -3,59 +3,66 @@
 {% load material_form %}
 
 {% block title_block %} 360 MedNet {% endblock %}
-{% block large %}<br>
+{% block large %}
+<div style="min-height: 100vh; display: flex; flex-direction: column; background-color: #ffffff">
 
-     <div class="row">
+{#     <div class="card col s12 m12 l12">#}
+{#            <div class="card-image">#}
+{#            <a href="{% url 'medical_cases' %}"><img src="{% static 'userprofile/images/hdr3sml.jpg' %}"></a>#}
+{#                <br><span class="card-title" style="font-weight: 500">View All Shared Medical Cases</span>#}
+{#            </div>#}
+{#            <div class="card-action blue-grey" align="center">#}
+{#          <a href="{% url 'medical_cases' %}">View All Shared Medical Cases</a>#}
+{#        </div>#}
+{#        </div>#}
+{##}
+{#    <div class="row">#}
+{##}
+{#          <div class="card col s12 m6 l6" style="height: 200px;">#}
+{#            <div class="card-image">#}
+{#              <img src="{% static 'userprofile/images/medisharedrk.jpeg' %}">#}
+{#                <br><span class="card-title" style="font-weight: 500">Upcoming Events</span>#}
+{#            </div>#}
+{#            <div class="card-content">#}
+{#            {% if top_five_latest_events %}#}
+{#                 <ul class="cyan-text">#}
+{#                     {% for event in top_five_latest_events %}#}
+{#                         <li>{{ event }}</li>#}
+{#                     {% endfor %}#}
+{#            </ul>#}
+{#                {% else %}#}
+{#                <br><span class="red-text">There are no upcoming Events or Conferences.</span>#}
+{#            {% endif %}#}
+{#            </div>#}
+{#          <br>#}
+{#          </div>#}
+{##}
+{#          <div class="card col s12 m6 l6" style="height: 200px;">#}
+{#            <div class="card-image">#}
+{#              <img src="{% static 'userprofile/images/medisharedrk.jpeg' %}">#}
+{#                <br><span class="card-title" style="font-weight: 500">Latest Medical Cases</span>#}
+{#            </div>#}
+{#            <div class="card-content">#}
+{##}
+{#            {% if top_five_latest_medical_cases %}#}
+{#                  <ul class="cyan-text">#}
+{#                      {% for medical_case in top_five_latest_medical_cases %}#}
+{#                          <li><a href="{% url 'medical_case-detail' medical_case.id %}">{{medical_case.title }}</a></li>#}
+{#                     {% endfor %}#}
+{#            </ul>#}
+{#                {% else %}#}
+{#                <br><span class="red-text">No Medical cases yet.</span>#}
+{#            {% endif %}#}
+{#            </div>#}
+{#          <br>#}
+{#          </div>#}
+{#    </div>#}
 
-          <div class="col s12 m6 l6">
-            <div class="row">
-        <div class="col l12">
-          <div class="card">
-            <div class="card-image">
-              <img src="{% static 'userprofile/images/medisharedrk.jpeg' %}">
-                <br><span class="card-title" style="font-weight: 500">Events</span>
+    <div class="card" style="max-height: 100px">
+        <div class="card-image">
+            <a href="{% url 'posts' %}"><img src="{% static 'userprofile/images/medisharedrk.jpeg' %}"></a>
+                <br><span class="card-title" style="font-weight: 500">Forum</span>
             </div>
-            <div class="card-content">
-              <p class="blue-grey-text">Ongoing & Upcoming Events and Conferences .</p>
-            {% if top_five_latest_events %}
-                 <ul class="cyan-text">
-                     {% for event in top_five_latest_events %}
-                         <li>{{ event }}</li>
-                     {% endfor %}
-            </ul>
-                {% else %}
-                <br><span class="red-text">No events available yet.</span>
-            {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-          </div>
-      <div class="col s12 m6 l6">
-            <div class="row">
-        <div class="col l12">
-          <div class="card">
-            <div class="card-image">
-              <img src="{% static 'userprofile/images/medisharedrk.jpeg' %}">
-                <br><span class="card-title" style="font-weight: 500">Medical Cases</span>
-            </div>
-            <div class="card-content">
-
-                <p class="blue-grey-text">The newest 5 shared medical cases will be listed here.</p>
-            {% if top_five_latest_medical_cases %}
-                  <ul class="cyan-text">
-                      {% for medical_case in top_five_latest_medical_cases %}
-                         <li>{{ medical_case.title }}</li>
-                     {% endfor %}
-            </ul>
-                {% else %}
-                <br><span class="red-text">No Medical cases yet.</span>
-            {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-          </div>
     </div>
 
 {% if all_posts.count > 0 %}
@@ -68,7 +75,8 @@
             <div class="container">
                 <br><h5 style="font-weight: 300"><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h5>
                 <br><span class="blue-grey-text">{{ post.post_content }}</span>
-            <br><br>
+            <br>
+                <div class="divider"></div>
 
                   <table><tr><td>
                     <br><img class="round" src="{{post.doctor.avatar.url }}" class="responsive-img img-fluid"
@@ -122,6 +130,7 @@
         </div>
       </div>
           </div>
+</div>
 
 
 {% endblock %}
